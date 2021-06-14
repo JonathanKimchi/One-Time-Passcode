@@ -17,9 +17,9 @@ firebase.auth().onAuthStateChanged(function(user) {
     } 
     else {
       // No user is signed in.
-  
+      window.location.href = "/?redirect=dashboard";//lets you know where I'm redirecting from. 
       document.getElementById("user_div").style.display = "none";
-      document.getElementById("login_div").style.display = "block";
+      //document.getElementById("login_div").style.display = "block";
   
     }
   });
