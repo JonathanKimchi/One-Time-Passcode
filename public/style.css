@@ -60,7 +60,14 @@ input, button {
   padding: 20px;
   display: none;
 }
-
+@media only screen and (max-width: 600px) {
+  .main-div, .loggedin-div {
+    width: 80%;
+    margin: 0px auto;
+    margin-top: 150px;
+    display: none;
+  }
+}
 .main-div input {
   display: block;
   border: 1px solid #ccc;
