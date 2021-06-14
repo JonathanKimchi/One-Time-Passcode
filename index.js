@@ -2,6 +2,7 @@ var express = require('express');
 var app = express();
 var firebase = require('firebase/app');
 require("firebase/auth");
+require("firebase/firestore");
 app.set("view engine","ejs");
 app.use(express.static(__dirname+'/public'));
 var firebaseConfig = {
@@ -20,7 +21,7 @@ app.get('/', (req,res)=> {
 app.get('/dashboard', (req,res)=> 
 {
         // Initialize Firebase
-        res.render("home");
+        res.render("dashboard");
 });
 
 app.listen(3000,()=>

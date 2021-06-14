@@ -1,7 +1,18 @@
+
+
+function getParameterByName(name, url = window.location.href) {
+  name = name.replace(/[\[\]]/g, '\\$&');
+  var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+      results = regex.exec(url);
+  if (!results) return null;
+  if (!results[2]) return '';
+  return decodeURIComponent(results[2].replace(/\+/g, ' '));
+}
+
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
     // User is signed in.
-
+    
     document.getElementById("user_div").style.display = "block";
     document.getElementById("login_div").style.display = "none";
 
@@ -11,6 +22,16 @@ firebase.auth().onAuthStateChanged(function(user) {
 
       var email_id = user.email;
       document.getElementById("user_para").innerHTML = "Welcome User : " + email_id;
+      //var redirect = getParameterByName(redirect,window.location.href)
+      window.location.href = "/dashboard";
+      /*if(redirect!="")
+      {
+        window.location.href = __dirname+"/dashboard";
+      }
+      else
+      {
+        window.location.href = __dirname+"/"+redirect;
+      }*/
 
     }
 
