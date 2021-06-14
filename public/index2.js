@@ -13,8 +13,8 @@ firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
     // User is signed in.
     
-    document.getElementById("user_div").style.display = "block";
-    document.getElementById("login_div").style.display = "none";
+    //document.getElementById("user_div").style.display = "block";
+    document.getElementById("firebasetest").style.display = "none";
 
     var user = firebase.auth().currentUser;
 
@@ -38,8 +38,8 @@ firebase.auth().onAuthStateChanged(function(user) {
   } else {
     // No user is signed in.
 
-    document.getElementById("user_div").style.display = "none";
-    document.getElementById("login_div").style.display = "block";
+    //document.getElementById("user_div").style.display = "none";
+    document.getElementById("firebasetest").style.display = "block";
 
   }
 });
@@ -64,8 +64,13 @@ function loginUI()
 {
   var ui = new firebaseui.auth.AuthUI(firebase.auth());
   ui.start('#firebasetest', {
+    signInFlow: 'popup',
     signInOptions: [
-      firebase.auth.EmailAuthProvider.PROVIDER_ID
+      firebase.auth.EmailAuthProvider.PROVIDER_ID,
+      firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+      firebase.auth.FacebookAuthProvider.PROVIDER_ID,
+      firebase.auth.TwitterAuthProvider.PROVIDER_ID,
+      firebase.auth.GithubAuthProvider.PROVIDER_ID
     ],
     // Other config options...
   });
