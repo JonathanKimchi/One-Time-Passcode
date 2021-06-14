@@ -60,7 +60,16 @@ function login(){
   });
 
 }
-
+function loginUI()
+{
+  var ui = new firebaseui.auth.AuthUI(firebase.auth());
+  ui.start('#firebasetest', {
+    signInOptions: [
+      firebase.auth.EmailAuthProvider.PROVIDER_ID
+    ],
+    // Other config options...
+  });
+}
 function logout(){
   firebase.auth().signOut();
 }
