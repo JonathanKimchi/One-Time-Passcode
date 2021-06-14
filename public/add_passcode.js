@@ -2,22 +2,21 @@ firebase.auth().onAuthStateChanged(function(user) {//must include this on every 
     if (user) {
       // User is signed in.
   
-      document.getElementById("user_div").style.display = "block";
-      document.getElementById("login_div").style.display = "none";
       var user = firebase.auth().currentUser;
   
       if(user != null){
   
         var email_id = user.email;
-        readTest();
+        //document.getElementById("user_para").innerHTML = "Welcome User : " + email_id;
+        //document.getElementById("pass1").style.display = "block";
   
       }
   
     } 
     else {
       // No user is signed in.
-      window.location.href = "/?redirect=dashboard";//lets you know where I'm redirecting from. 
-      document.getElementById("user_div").style.display = "none";
+      window.location.href = "/?redirect=add_passcode";//lets you know where I'm redirecting from. 
+      document.getElementById("pass1").style.display = "none";
       //document.getElementById("login_div").style.display = "block";
   
     }
@@ -109,12 +108,63 @@ firebase.auth().onAuthStateChanged(function(user) {//must include this on every 
   }
   function addPasscode()
   {
-    /*const table = document.getElementById("passTable");
+    const table = document.getElementById("passTable");
     var counter= 0;
     var tableRows = table.getElementsByTagName('tr');
     var rowCount = tableRows.length;
     for (var x=rowCount-1; x>0; x--) {
       table.removeChild(tableRows[x]);
-    }*/
+    }
     window.location.href = "/add_passcode";
+  }
+
+  function nextSlide()
+  {
+    document.getElementById("pass1").style.display = "none";
+    document.getElementById("pass2").style.display = "block";
+  }
+  function nextSlide1()
+  {
+    document.getElementById("pass2").style.display = "none";
+    document.getElementById("pass3").style.display = "block";
+  }
+  function nextSlide2()//time to collect the form responses and make a database entry. 
+  {
+    //document.getElementById("pass3").style.display = "none";
+    //document.getElementById("pass4").style.display = "block";
+
+    //importing form responses.
+    let label = document.getElementById("label").value;
+    let dateOfExpiry = document.getElementById("dateOfExpiry").value;
+    let hasNumbers= document.getElementById("hasNumbers").value;
+    let hasUppercase = document.getElementById("hasUppercase").value;
+    let hasLowercase = document.getElementById("hasLowercase").value;
+    let hasSpecial = document.getElementById("hasSpecial").value;
+    try 
+    {
+      var db = firebase.firestore();
+    }
+    catch (error) 
+    {
+      document.getElementById("hmm").innerHTML = error;
+      return;
+    }//connect to db to enter data. 
+    db.collection("passwords").add(
+        {
+          owner_uid: firebase.auth().currentUser.uid,
+          label: label,
+          dateOfExpiry: dateOfExpiry,
+          password: "passtestNew"
+        }
+      )
+      .then((docRef)=>
+      {
+        window.location.href = "/dashboard";
+      })
+      .catch((error)=>
+      {
+        document.getElementById("hmm").innerHTML = error;
+      })
+
+
   }

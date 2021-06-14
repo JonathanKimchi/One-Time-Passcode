@@ -1,0 +1,80 @@
+<html>
+<head>
+  <title>Dashboard</title>
+  <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-app.js"></script> 
+  
+</head>
+<body>
+    <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-firestore.js"></script>
+    <script>
+        // Initialize Firebase
+
+        var firebaseConfig = {
+        apiKey: "AIzaSyBhT_UgYabv0UZ0KoHw082biu2S4SEyNbw",
+        authDomain: "onetimepassword-f8dc6.firebaseapp.com",
+        projectId: "onetimepassword-f8dc6",
+        storageBucket: "onetimepassword-f8dc6.appspot.com",
+        messagingSenderId: "344320674572",
+        appId: "1:344320674572:web:b9cf6aeede0c7289aad729",
+        measurementId: "G-WNQW4QSNM1"
+        };
+        // Initialize Firebase
+        
+          firebase.initializeApp(firebaseConfig);
+        
+    </script>
+    <p id="user_para"></p>
+    <script defer src="add_passcode.js"></script>
+
+    <div id="pass1" class="main-div" style = "display:block">
+      <h3>Passcode Creation</h3>
+      <p id = "hmm"></p>
+      <h2>What are you going to use this password for?</h4>
+      
+      <input type="text" id="label" value="Gaming,Time Management,etc.">
+      <button onclick="nextSlide()">Next</button>
+      
+    </div>
+
+    <div id="pass2" class="main-div">
+      <h3>Passcode Creation</h3>
+      <h2>When do you want your Passcode back?</h4>
+      
+      <input type="text" id="dateOfExpiry" value="12/1/2021">
+      <button onclick="nextSlide1()">Next</button>
+      
+    </div>
+
+    <div id="pass3" class="main-div">
+      <h3>Passcode Creation</h3>
+      <h2>Let's customize your Passcode to best suit your needs.</h4>
+      <label for = "passwordLength">Password Length:</label>
+      <input type="text" id="passwordLength" value="10">
+      <label for = "checkbox">Password Includes:</label>
+      
+      <form id = "checkbox">
+        <input type="checkbox" id="hasNumbers" name="gender">
+        <label for="hasNumbers">Numbers</label>
+        <input type="checkbox" id="hasUppercase" name="gender">
+        <label for="hasUppercase">Uppercase Letters</label><br>
+        <input type="checkbox" id="hasLowercase" name="gender">
+        <label for="hasUppercase">Lowercase Letters</label>
+        <input type="checkbox" id="hasSpecial" name="gender">
+        <label for="hasSpecial">Special Characters</label>
+      </form>
+
+      <button onclick="nextSlide2()">Generate Your Passcode!</button>
+      
+    </div>
+
+  <script src="/__/firebase/8.6.7/firebase-app.js"></script>
+  <script src="/__/firebase/8.6.7/firebase-auth.js"></script>
+  <script src="/__/firebase/8.6.7/firebase-firestore.js"></script>
+  <script src="/__/firebase/init.js"></script>
+
+</body>
+</html>

@@ -11,6 +11,42 @@ input, button {
   font-weight: 700;
 }
 
+#pass1 {
+  position: relative;
+  left: 2000px;
+  background: rgb(255, 255, 255);
+  -webkit-animation: slide 1s forwards;
+  -webkit-animation-delay: 0s;
+  animation: slide 1s forwards;
+  animation-delay: 0s;
+}
+#pass2 {
+  position: relative;
+  left: 2000px;
+  background: rgb(255, 255, 255);
+  -webkit-animation: slide 1s forwards;
+  -webkit-animation-delay: 0s;
+  animation: slide 1s forwards;
+  animation-delay: 0s;
+}
+#pass3 {
+  position: relative;
+  left: 2000px;
+  background: rgb(255, 255, 255);
+  -webkit-animation: slide 1s forwards;
+  -webkit-animation-delay: 0s;
+  animation: slide 1s forwards;
+  animation-delay: 0s;
+}
+
+@-webkit-keyframes slide {
+  100% { left: 0; }
+}
+
+@keyframes slide {
+  100% { left: 0; }
+}
+
 .main-div, .loggedin-div {
   width: 20%;
   margin: 0px auto;
@@ -55,4 +91,26 @@ input, button {
   color: #5d8ffc;
   border: 1px solid #5d8ffc;
   cursor: pointer;
+}
+
+#checkboxes label {
+  float: left;
+}
+#checkboxes ul {
+  margin: 0;
+  list-style: none;
+  float: left;
+}
+
+.container {
+  display: block;
+  position: relative;
+  padding-left: 0px;
+  margin-bottom: 0px;
+  cursor: pointer;
+  font-size: 12px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }

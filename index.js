@@ -23,6 +23,11 @@ app.get('/dashboard', (req,res)=>
         // Initialize Firebase
         res.render("dashboard");
 });
+app.get('/add_passcode/', (req,res)=> 
+{
+        // Initialize Firebase
+        res.render("add_passcode");
+});
 
 app.listen(3000,()=>
 {
