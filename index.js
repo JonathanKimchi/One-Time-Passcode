@@ -29,7 +29,7 @@ app.get('/add_passcode/', (req,res)=>
         res.render("add_passcode");
 });
 
-app.listen(3000,()=>
+app.listen(process.env.PORT||5000,()=>
 {
     console.log("System is running...");
     //firebase.initializeApp(firebaseConfig);
