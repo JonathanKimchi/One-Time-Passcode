@@ -82,7 +82,7 @@ firebase.auth().onAuthStateChanged(function(user) {//must include this on every 
         }
     try
     {
-      var inputPass = Math.floor(Math.random*10);
+      var inputPass = Math.floor(Math.random*10).toString(10);
       db.collection("passwords").add(
         {
           owner_uid: firebase.auth().currentUser.uid,
@@ -128,6 +128,11 @@ firebase.auth().onAuthStateChanged(function(user) {//must include this on every 
     document.getElementById("pass2").style.display = "none";
     document.getElementById("pass3").style.display = "block";
   }
+  function randomString(length, chars) {
+    var result = '';
+    for (var i = length; i > 0; --i) result += chars[Math.floor(Math.random() * chars.length)];
+    return result;
+  }
   function nextSlide2()//time to collect the form responses and make a database entry. 
   {
     //document.getElementById("pass3").style.display = "none";
@@ -140,6 +145,7 @@ firebase.auth().onAuthStateChanged(function(user) {//must include this on every 
     let hasUppercase = document.getElementById("hasUppercase").value;
     let hasLowercase = document.getElementById("hasLowercase").value;
     let hasSpecial = document.getElementById("hasSpecial").value;
+    let passwordLength = document.getElementById("passwordLength").value;
     try 
     {
       var db = firebase.firestore();
@@ -149,14 +155,16 @@ firebase.auth().onAuthStateChanged(function(user) {//must include this on every 
       document.getElementById("hmm").innerHTML = error;
       return;
     }//connect to db to enter data. 
-    db.collection("passwords").add(
-        {
-          owner_uid: firebase.auth().currentUser.uid,
-          label: label,
-          dateOfExpiry: dateOfExpiry,
-          password: "passtestNew"
-        }
-      )
+    var inputPass = randomString(passwordLength, '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ');
+    //Math.random().toString(36).substring(parseInt(passwordLength));
+    var finalObject = 
+    {
+        owner_uid: firebase.auth().currentUser.uid,
+        label: label,
+        dateOfExpiry: dateOfExpiry,
+        password: inputPass
+    }
+    db.collection("passwords").add(finalObject)
       .then((docRef)=>
       {
         window.location.href = "/dashboard";
