@@ -44,7 +44,7 @@
       <h3>Passcode Creation(Step 2 of 3)</h3>
       <h2>When do you want your Passcode back?</h4>
       
-      <input type="text" id="dateOfExpiry" value="12/1/2021">
+      <input type="date" id="dateOfExpiry" value="12/1/2021">
       <button onclick="nextSlide1()">Next</button>
       
     </div>
@@ -54,18 +54,18 @@
       <h2>Let's customize your Passcode to best suit your needs.</h4>
       <label for = "passwordLength">Passcode Length:</label>
       <input type="text" id="passwordLength" value="10">
-      <label for = "checkbox">Password Includes:</label>
+      <label for = "checkbox">Password Includes:</label><br>
       
-      <form id = "checkbox">
+      
         <input type="checkbox" id="hasNumbers" name="gender">
-        <label for="hasNumbers">Numbers</label>
+        <label for="hasNumbers">Numbers</label><br>
         <input type="checkbox" id="hasUppercase" name="gender">
         <label for="hasUppercase">Uppercase Letters</label><br>
         <input type="checkbox" id="hasLowercase" name="gender">
-        <label for="hasUppercase">Lowercase Letters</label>
+        <label for="hasUppercase">Lowercase Letters</label><br>
         <input type="checkbox" id="hasSpecial" name="gender">
-        <label for="hasSpecial">Special Characters</label>
-      </form>
+        <label for="hasSpecial">Special Characters</label><br>
+      
 
       <button onclick="nextSlide2()">Generate Your Passcode!</button>
       
