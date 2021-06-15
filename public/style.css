@@ -61,7 +61,7 @@ input, button {
   display: none;
 }
 .expl-div{
-  width: 100%;
+  width: 33%;
   margin: 0px auto;
   padding: 20px;
   display: none;
@@ -73,7 +73,7 @@ input, button {
   display: block;
 }
 @media only screen and (max-width: 1200px) {
-  .main-div, .loggedin-div,.side-div {
+  .main-div, .loggedin-div,.side-div,.expl-div {
     width: 80%;
     margin: 0px auto;
     margin-top: 150px;
