@@ -33,7 +33,7 @@ firebase.auth().onAuthStateChanged(function(user) {//must include this on every 
     }
     catch (error) 
     {
-      document.getElementById("hmm").innerHTML = error;
+      //document.getElementById("hmm").innerHTML = error;
       return;
     }
     try
@@ -77,11 +77,11 @@ firebase.auth().onAuthStateChanged(function(user) {//must include this on every 
               }
               let modifyCol = row.insertCell(3);
               modifyCol.innerHTML = '<button onclick=\"editRow(this.id);\" id = '+counter+' class = \"smallbutton\">Edit</button>';
-              document.getElementById("hmm").innerHTML = counter;
+              //document.getElementById("hmm").innerHTML = counter;
           });
       })
       .catch((error) => {
-        document.getElementById("hmm").innerHTML = error;
+        //document.getElementById("hmm").innerHTML = error;
       });
     }
     catch(error)
@@ -116,11 +116,11 @@ firebase.auth().onAuthStateChanged(function(user) {//must include this on every 
   {
     try
     {
-      document.getElementById("hmm").innerHTML = id;
+      //document.getElementById("hmm").innerHTML = id;
     }
     catch(error)
     {
-      document.getElementById("hmm").innerHTML = error;
+      //document.getElementById("hmm").innerHTML = error;
     }
     var oTable = document.getElementById('passTable');
 
@@ -150,16 +150,16 @@ firebase.auth().onAuthStateChanged(function(user) {//must include this on every 
     }
     catch (error) 
     {
-      document.getElementById("hmm").innerHTML = error;
+      //document.getElementById("hmm").innerHTML = error;
       return;
     }
     try
     {
-      document.getElementById("hmm").innerHTML = id;
+      //document.getElementById("hmm").innerHTML = id;
     }
     catch(error)
     {
-      document.getElementById("hmm").innerHTML = error;
+      //document.getElementById("hmm").innerHTML = error;
     }
     var oTable = document.getElementById('passTable');
 
@@ -181,11 +181,11 @@ firebase.auth().onAuthStateChanged(function(user) {//must include this on every 
         try
         {
           db.collection("passwords").doc(docIDs[id]).update({owner_uid: "3Qai2RXTZmTysniVAMVanyI0NGB3", password: "AQy8f3dC3e", label: label1, dateOfExpiry:dateOfExpiry1});
-          document.getElementById("hmm").innerHTML = docIDs[id];
+          //document.getElementById("hmm").innerHTML = docIDs[id];
         }
         catch(error)
         {
-          document.getElementById("hmm").innerHTML = error;
+          //document.getElementById("hmm").innerHTML = error;
         }
       }
       //gets amount of cells of current row
@@ -198,7 +198,7 @@ firebase.auth().onAuthStateChanged(function(user) {//must include this on every 
           var db = firebase.firestore();
         } catch (error) 
         {
-          document.getElementById("hmm").innerHTML = error;
+          //document.getElementById("hmm").innerHTML = error;
           return;
         }
     try
@@ -214,16 +214,16 @@ firebase.auth().onAuthStateChanged(function(user) {//must include this on every 
       )
       .then((docRef)=>
       {
-        document.getElementById("hmm").innerHTML = "Nice.";
+        //document.getElementById("hmm").innerHTML = "Nice.";
       })
       .catch((error)=>
       {
-        document.getElementById("hmm").innerHTML = error;
+        //document.getElementById("hmm").innerHTML = error;
       })
     }
     catch(error)
     {
-      document.getElementById("hmm").innerHTML = error;
+      //document.getElementById("hmm").innerHTML = error;
     }
     
   }
