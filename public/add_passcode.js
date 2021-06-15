@@ -122,6 +122,7 @@ firebase.auth().onAuthStateChanged(function(user) {//must include this on every 
   {
     document.getElementById("pass1").style.display = "none";
     document.getElementById("pass2").style.display = "block";
+    document.getElementById("dateOfExpiry").value = new Date().toISOString().substr(0, 10);
   }
   function nextSlide1()
   {
