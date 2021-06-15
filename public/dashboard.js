@@ -238,3 +238,69 @@ firebase.auth().onAuthStateChanged(function(user) {//must include this on every 
     }*/
     window.location.href = "/add_passcode";
   }
+  function removePasscode()
+  {
+    var oTable = document.getElementById('passTable');
+  //gets rows of table
+    var rowLength = oTable.rows.length;
+
+    //loops through rows    
+    for (i = 1; i < rowLength; i++)
+    {
+
+      //gets cells of current row
+      var oCells = oTable.rows.item(i).cells;
+      oCells.item(3).innerHTML="<button onclick=\"deleteRowHelper("+i+");\" id="+i+">Delete</button>";
+    }
+  }
+  function deleteRowHelper(id)
+  {
+    if (confirm('Are you sure you want to delete this passcode from the database? Once you delete it, there\'s no way to get it back! Press OK to confirm or Cancel to cancel.')) 
+    {
+      deleteRow(id);
+    } 
+    else {
+      // Do nothing!
+    }
+  }
+  function deleteRow(id)
+  {
+    try 
+    {
+      var db = firebase.firestore();
+    }
+    catch (error) 
+    {
+      //document.getElementById("hmm").innerHTML = error;
+      return;
+    }
+    var oTable = document.getElementById('passTable');
+
+    //gets rows of table
+    var rowLength = oTable.rows.length;
+    //loops through rows    
+    for (i = 0; i < rowLength; i++){
+
+      //gets cells of current row
+      var oCells = oTable.rows.item(i).cells;
+      //document.getElementById("hmm").innerHTML = id;
+      if(i==id)
+      {
+        
+        try
+        {
+          db.collection("passwords").doc(docIDs[id]).delete()
+          .then(()=>
+          {
+            window.location.href="/";
+          });
+          //document.getElementById("hmm").innerHTML = docIDs[id];
+        }
+        catch(error)
+        {
+          //document.getElementById("hmm").innerHTML = error;
+        }
+      }
+    }
+  }
+  
