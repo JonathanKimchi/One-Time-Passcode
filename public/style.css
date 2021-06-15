@@ -74,6 +74,9 @@ input, button {
     display: none;
   }
 }
+th {
+  text-align: left;
+}
 .main-div input {
   display: block;
   border: 1px solid #ccc;
