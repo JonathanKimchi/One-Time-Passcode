@@ -63,6 +63,7 @@ function login(){
 function loginUI()
 {
   var ui = new firebaseui.auth.AuthUI(firebase.auth());
+  document.getElementById("loginblock").style.display="block";
   ui.start('#loginblock', {
     signInFlow: 'popup',
     signInOptions: [
@@ -74,4 +75,8 @@ function loginUI()
 }
 function logout(){
   firebase.auth().signOut();
+}
+function displayExplanation()
+{
+  document.getElementById("explanation").style.display = "block";
 }

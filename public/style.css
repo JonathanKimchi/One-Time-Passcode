@@ -60,6 +60,12 @@ input, button {
   padding: 20px;
   display: none;
 }
+.expl-div{
+  width: 33%;
+  margin: 0px auto;
+  padding: 20px;
+  display: none;
+}
 .centerUI {
   width: 80%;
   margin: 0px auto;
@@ -67,7 +73,7 @@ input, button {
   display: block;
 }
 @media only screen and (max-width: 1200px) {
-  .main-div, .loggedin-div {
+  .main-div, .loggedin-div,.side-div {
     width: 80%;
     margin: 0px auto;
     margin-top: 150px;
@@ -76,6 +82,13 @@ input, button {
 }
 th {
   text-align: left;
+}
+.side-div
+{
+  width: 33%;
+  margin: 0px auto;
+  margin-top: 150px;
+  padding: 20px;
 }
 .smallbutton {
   background: #5d8ffc;
@@ -88,6 +101,21 @@ th {
   transition: 0.3s;
   -webkit-transition: 0.3s;
   -moz-transition: 0.3s;
+}
+.linkbutton {
+  background: none!important;
+  border: none;
+  padding: 0!important;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  /*optional*/
+  font-family: arial, sans-serif;
+  /*input has OS specific font-family*/
+  color: rgb(171, 177, 180);
+  text-decoration: underline;
+  cursor: pointer;
 }
 .redbutton:hover{
   background: #fff;

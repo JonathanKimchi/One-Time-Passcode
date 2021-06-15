@@ -14,10 +14,24 @@
     <h3>OneTimePasscode Login</h3>
     <button onclick="loginUI()">Login UI</button>
   </div>
-  <div id = "loginblock" class="centerUI">
+  <div id = "loginblock" class="centerUI" style="display: none;">
 
   </div>
-
+  <div class="centerUI" style="display:block">
+    <button onclick="displayExplanation()" class="linkbutton">What is OneTimePasscode?</button>
+  </div>
+  <div id = "explanation" class = "expl-div">
+    <p>
+      There are many Productivity/Self-Control apps out there that require their users to put in a PIN/password
+      in order to restrict access to certain time-wasters, with the idea being that users would have a trusted acquaintance
+      put a password in for them so that they can't disable the app themselves. Sometimes, however, you might not have 
+      a person to give it to, or perhaps you may feel uncomfortable putting a burden on someone else to store and recall 
+      the password for you. One Time Passcode seeks to solve this issue. The service generates a unique and random code for
+      you to use in an app of your choice, and then immediately hides it from you until a set date. Until that date passes,
+      you cannot access that code file, insuring that you won't cheat and look up the code during moments of weakness. Hopefully,
+      by the end of the time period, you won't need the passcode anymore!
+    </p>
+  </div>
   <div id="user_div" class="loggedin-div">
     <h3>Welcome User</h3>
     <p id="user_para">Welcome to Firebase web login Example. You're currently logged in.</p>
