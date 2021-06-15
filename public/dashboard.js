@@ -135,7 +135,7 @@ firebase.auth().onAuthStateChanged(function(user) {//must include this on every 
       if(i==id)
       {
         oCells.item(0).innerHTML="<input type=\"text\" id=label"+id+" value ="+oCells.item(0).innerHTML+">";
-        oCells.item(1).innerHTML="<input type=\"date\" id=dateOfExpiry"+id+" min ="+oCells.item(1).innerHTML+">";
+        oCells.item(1).innerHTML="<input type=\"date\" id=dateOfExpiry"+id+" min ="+oCells.item(1).innerHTML+" value = "+oCells.item(1).innerHTML+">";
         oCells.item(3).innerHTML="<button onclick=\"saveRow("+id+");\" id="+id+">Done</button>";
         let password;//Don't need this.
       }

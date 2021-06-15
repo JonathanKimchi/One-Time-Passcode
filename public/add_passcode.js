@@ -141,10 +141,10 @@ firebase.auth().onAuthStateChanged(function(user) {//must include this on every 
     //importing form responses.
     let label = document.getElementById("label").value;
     let dateOfExpiry = document.getElementById("dateOfExpiry").value;
-    let hasNumbers= document.getElementById("hasNumbers").value;
-    let hasUppercase = document.getElementById("hasUppercase").value;
-    let hasLowercase = document.getElementById("hasLowercase").value;
-    let hasSpecial = document.getElementById("hasSpecial").value;
+    let hasNumbers= document.getElementById("hasNumbers").checked;
+    let hasUppercase = document.getElementById("hasUppercase").checked;
+    let hasLowercase = document.getElementById("hasLowercase").checked;
+    let hasSpecial = document.getElementById("hasSpecial").checked;
     let passwordLength = document.getElementById("passwordLength").value;
     try 
     {
@@ -155,7 +155,24 @@ firebase.auth().onAuthStateChanged(function(user) {//must include this on every 
       document.getElementById("hmm").innerHTML = error;
       return;
     }//connect to db to enter data. 
-    var inputPass = randomString(passwordLength, '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ');
+    var ranString ="";
+    if(hasNumbers==true)
+    {
+        ranString = ranString+"0123456789";
+    }
+    if(hasUppercase==true)
+    {
+        ranString = ranString+"ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    }
+    if(hasLowercase==true)
+    {
+        ranString = ranString+"abcdefghijklmnopqrstuvwxyz";
+    }
+    if(hasSpecial==true)
+    {
+        ranString = ranString+"!@#$%^&*()";
+    }
+    var inputPass = randomString(passwordLength, ranString);
     //Math.random().toString(36).substring(parseInt(passwordLength));
     var finalObject = 
     {
@@ -167,7 +184,10 @@ firebase.auth().onAuthStateChanged(function(user) {//must include this on every 
     db.collection("passwords").add(finalObject)
       .then((docRef)=>
       {
-        window.location.href = "/dashboard";
+        //window.location.href = "/dashboard";
+        document.getElementById("pass3").style.display = "none";
+        document.getElementById("pass4").style.display = "block";
+        document.getElementById("finalPass").innerText = inputPass;
       })
       .catch((error)=>
       {
@@ -175,4 +195,8 @@ firebase.auth().onAuthStateChanged(function(user) {//must include this on every 
       })
 
 
+  }
+  function finalSlide()
+  {
+    window.location.href = "/dashboard";
   }
