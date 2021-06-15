@@ -89,8 +89,8 @@ th {
   -webkit-transition: 0.3s;
   -moz-transition: 0.3s;
 }
-.redbutton button{
-  background: #fc5d5d;
+.redbutton:hover{
+  background: #fff;
   color: #fff;
   border: 1px solid #fc5d5d;
   border-radius: 5px;

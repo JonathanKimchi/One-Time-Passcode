@@ -69,7 +69,7 @@ firebase.auth().onAuthStateChanged(function(user) {//must include this on every 
               dateOfExpiry.innerHTML = doc.data().dateOfExpiry;
               if(tempDate.getTime()<=today.getTime())
               {
-                password.innerHTML = '<button onclick=\"showPassword('+counter+');\" id = view'+counter+'>View</button>';
+                password.innerHTML = '<button onclick=\"showPassword('+counter+');\" class = \"redbutton\" style=\"background:#fc5d5d;border: 1px solid #fc5d5d\"id = view'+counter+'>View</button>';
               }
               else
               {
