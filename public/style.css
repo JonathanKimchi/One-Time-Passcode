@@ -60,7 +60,13 @@ input, button {
   padding: 20px;
   display: none;
 }
-@media only screen and (max-width: 800px) {
+.centerUI {
+  width: 80%;
+  margin: 0px auto;
+  padding: 20px;
+  display: block;
+}
+@media only screen and (max-width: 1000px) {
   .main-div, .loggedin-div {
     width: 80%;
     margin: 0px auto;

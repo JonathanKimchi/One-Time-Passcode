@@ -1,6 +1,6 @@
 <html>
 <head>
-  <title>Dashboard</title>
+  <title>Passcode Creation</title>
   <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
   <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-app.js"></script> 
@@ -31,7 +31,7 @@
     <script defer src="add_passcode.js"></script>
 
     <div id="pass1" class="main-div" style = "display:block">
-      <h3>Passcode Creation</h3>
+      <h3>Passcode Creation(Step 1 of 3)</h3>
       <p id = "hmm"></p>
       <h2>What are you going to use this password for?</h4>
       
@@ -41,7 +41,7 @@
     </div>
 
     <div id="pass2" class="main-div">
-      <h3>Passcode Creation</h3>
+      <h3>Passcode Creation(Step 2 of 3)</h3>
       <h2>When do you want your Passcode back?</h4>
       
       <input type="text" id="dateOfExpiry" value="12/1/2021">
@@ -50,7 +50,7 @@
     </div>
 
     <div id="pass3" class="main-div">
-      <h3>Passcode Creation</h3>
+      <h3>Passcode Creation(Step 3 of 3)</h3>
       <h2>Let's customize your Passcode to best suit your needs.</h4>
       <label for = "passwordLength">Passcode Length:</label>
       <input type="text" id="passwordLength" value="10">

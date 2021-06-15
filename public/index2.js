@@ -63,7 +63,7 @@ function login(){
 function loginUI()
 {
   var ui = new firebaseui.auth.AuthUI(firebase.auth());
-  ui.start('#firebasetest', {
+  ui.start('#loginblock', {
     signInFlow: 'popup',
     signInOptions: [
       firebase.auth.EmailAuthProvider.PROVIDER_ID,
