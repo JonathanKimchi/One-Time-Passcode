@@ -180,7 +180,7 @@ firebase.auth().onAuthStateChanged(function(user) {//must include this on every 
         oCells.item(3).innerHTML='<button onclick=\"editRow('+id+');\" id = '+i+' class = \"smallbutton\">Edit</button>';
         try
         {
-          db.collection("passwords").doc(docIDs[id]).update({owner_uid: "3Qai2RXTZmTysniVAMVanyI0NGB3", password: "AQy8f3dC3e", label: label1, dateOfExpiry:dateOfExpiry1});
+          db.collection("passwords").doc(docIDs[id]).update({label: label1, dateOfExpiry:dateOfExpiry1});
           //document.getElementById("hmm").innerHTML = docIDs[id];
         }
         catch(error)
